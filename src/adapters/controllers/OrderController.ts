@@ -20,7 +20,7 @@ export class OrderController {
                 description: description,
                 method_order_id: methodOrderId,
                 status_id: statusId,
-                products: Array(products).map<ICreateOrderProductDTO>((item) => { 
+                products: Array(products).map<ICreateOrderProductDTO>((item: { id: any; catalogId: any; }) => { 
                     return {id: item.id, catalog_id: item.catalogId} } ) 
             });
 

@@ -54,15 +54,15 @@ export class OrderRepository implements IOrderRepository{
     async save (order: Order): Promise<IOrderException | void> {
         try {
             
+            const found = await this.findById(order.order_id, order.company_id);
+            
+            if(found instanceof OrderResponse)
+                throw new Error("Data already exists on database.");
+            
             const db = await this.datasource.connect();
 
             if(!db)
                 throw Error('Some error was occurred with database connection');
-            
-            const found = await this.findById(order.order_id, order.company_id);
-
-            if(found instanceof OrderResponse)
-                throw new Error("Data already exists on database.");
             
             const result = await db.collection('orders').insertOne(order);
 
