@@ -2,7 +2,7 @@ import { Connection, Mongoose } from "mongoose";
 import { DatabaseService } from "..";
 import { Config } from "../../../app/config";
 
-export class MongoDBService implements DatabaseService{
+export class MongoDBService implements DatabaseService {
 
     private host: string;
     private port: string;
@@ -27,7 +27,6 @@ export class MongoDBService implements DatabaseService{
     async connect (): Promise<Connection | undefined> {
         if(!this.client) {
             try {
-                // await this.client.connect(`mongodb://${this.host}:${this.port}/test`);
                 this.client = await new Mongoose().connect(`mongodb://${this.host}:${this.port}/test`, {
                     useUnifiedTopology: true
                 });

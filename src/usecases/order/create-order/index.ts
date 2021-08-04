@@ -8,4 +8,4 @@ const orderRepository = new OrderRepository(datasource);
 
 const createOrderUsecase = new CreateOrderUsecase(orderRepository);
 
-export { createOrderUsecase }
+export { createOrderUsecase };

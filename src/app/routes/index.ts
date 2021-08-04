@@ -1,4 +1,5 @@
 import { Request, Response, Router } from "express";
+import { actionController } from "../../usecases/actions";
 import { orderController } from "../../usecases/order";
 
 export const routes = Router();
@@ -13,6 +14,6 @@ routes.post('/order', (request: Request, response: Response) => {
     return orderController.createOrder(request, response);
 });
 
-// routes.get('/order', (request: Request, response: Response) => {
-//     return orderController.createOrder(request, response);
-// });
+routes.post('/action', (request: Request, response: Response) => {
+    return actionController.createAction(request, response);
+});

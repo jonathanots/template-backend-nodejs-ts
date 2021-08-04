@@ -1,5 +1,6 @@
 import { Order, OrderProduct } from '../../../entities/order';
 import { IOrderRepository } from '../../../external/repositories/order/interfaces';
+import { IOrderException } from '../errors';
 import { ICreateOrderDTO } from './CreateOrderDTO';
 
 export class CreateOrderUsecase {
@@ -8,7 +9,7 @@ export class CreateOrderUsecase {
         private repository:IOrderRepository
     ) {}
 
-    async execute(data: ICreateOrderDTO) {
+    async execute(data: ICreateOrderDTO): Promise<IOrderException | void> {
         const order = new Order({
             order_id: data.order_id,
             company_id: data.company_id,
@@ -21,6 +22,6 @@ export class CreateOrderUsecase {
                 return {order_id: item.id, catalog_id: item.catalog_id} })
         });
 
-        await this.repository.save(order);
+        return await this.repository.save(order);
     }
 }
