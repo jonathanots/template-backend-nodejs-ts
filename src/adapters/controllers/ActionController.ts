@@ -9,7 +9,6 @@ export class ActionController{
 
     async createAction(request: Request, response: Response): Promise<Response>{
         const { companyId, employeeId, api, method, before, now } = request.body; 
-
         try {
             await this.createActionUsecase.execute({
                 company_id: companyId,
@@ -29,6 +28,27 @@ export class ActionController{
                 name: error.name,
                 message: error.message
             });
+        }
+    }
+
+    async createActionSocket(data: any): Promise<Boolean>{
+        const { companyId, employeeId, api, method, before, now } = data; 
+        try {
+            await this.createActionUsecase.execute({
+                company_id: companyId,
+                employee_id: employeeId,
+                api: api,
+                method: {
+                    name: method.name,
+                    alias: method.alias
+                },
+                before: before,
+                now: now
+            });
+
+            return true;
+        } catch (error) {
+            return false;
         }
     }
 

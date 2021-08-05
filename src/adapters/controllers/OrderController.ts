@@ -33,6 +33,28 @@ export class OrderController {
         }
     }
 
+    async createOrderSocket(data: any): Promise<Boolean>{
+        const { companyId, orderId, paymentId, customerId, description, methodOrderId, statusId, products} = data; 
+
+        try {
+            await this.createOrderUsecase.execute({
+                order_id: orderId,
+                company_id: companyId,
+                payment_id: paymentId,
+                customer_id: customerId,
+                description: description,
+                method_order_id: methodOrderId,
+                status_id: statusId,
+                products: Array(products).map<ICreateOrderProductDTO>((item: { id: any; catalogId: any; }) => { 
+                    return {id: item.id, catalog_id: item.catalogId} } ) 
+            });
+
+            return true;
+        } catch (error) {
+            return false;
+        }
+    }
+
     // async findById(request: Request, response: Response): Promise<Response> {
     //     const { orderId, companyId } = request.body;
 
