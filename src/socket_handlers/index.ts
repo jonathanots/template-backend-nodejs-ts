@@ -9,18 +9,18 @@ const msg = async (socket:Socket, data:any) => {
     socket.emit('fromMsg', data);
 }
 
-const createActionSocket = async (socket: Socket, data: any) => {
+const createActionHandler = async (socket: Socket, data: any) => {
   const result = await actionController.createActionSocket(data);
 
   if(result)
     socket.emit('createdAction', data);
 }
 
-const createOrderSocket = async (socket: Socket, data: any) => {
+const createOrderHandler = async (socket: Socket, data: any) => {
   const result = await orderController.createOrderSocket(data);
 
   if(result)
     socket.emit('createdOrder', data);
 }
 
-export { msg , createActionSocket , createOrderSocket };
+export { msg , createActionHandler , createOrderHandler };
