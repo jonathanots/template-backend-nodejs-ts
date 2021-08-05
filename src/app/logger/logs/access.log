@@ -98,3 +98,7 @@
 ::1 - - [05/Aug/2021:16:31:54 +0000] "GET /socket.io/?EIO=4&transport=polling&t=NiNA30J HTTP/1.1" 404 149
 ::1 - - [05/Aug/2021:16:32:00 +0000] "GET /socket.io/?EIO=4&transport=polling&t=NiNA4U7 HTTP/1.1" 404 149
 ::1 - - [05/Aug/2021:16:34:42 +0000] "POST /action HTTP/1.1" 201 -
+::1 - - [05/Aug/2021:18:48:59 +0000] "GET /server/status HTTP/1.1" 200 24
+::1 - - [05/Aug/2021:19:14:56 +0000] "POST /order HTTP/1.1" 400 89
+::1 - - [05/Aug/2021:19:14:59 +0000] "POST /action/ HTTP/1.1" 201 -
+::1 - - [05/Aug/2021:19:20:55 +0000] "POST /order HTTP/1.1" 400 89
