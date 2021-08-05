@@ -16,7 +16,7 @@ export class CreateOrderAlreadyExistsException implements IOrderException{
     message: string;
     stack?: string | undefined;
 
-    constructor(message: string = 'Some data on body is invalid', name:string = 'CreateOrderAlreadyExistsException') {
+    constructor(message: string = 'Some data on body is invalid', name:string = 'Create Order Already Exists Exception') {
         this.name = name;
         this.message = message;
     }

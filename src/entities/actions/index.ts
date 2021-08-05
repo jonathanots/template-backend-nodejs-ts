@@ -1,4 +1,4 @@
-import { uuid } from "uuidv4";
+import { v4 } from "uuid";
 
 export class ActionResponse {
     public readonly id?: string;
@@ -38,7 +38,7 @@ export class Action {
         Object.assign(this, props);
 
         if(!this.id)
-            this.id = uuid();
+            this.id = v4();
         
         if(!this.date)
             this.date = new Date();
