@@ -3,5 +3,5 @@
 package-lock.json
 .env
 *-local*
-**/logs/*.*
-**/vscode
+**/*.log
+.vscode/
