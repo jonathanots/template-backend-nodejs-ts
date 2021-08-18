@@ -1,9 +1,9 @@
 import 'dotenv/config';
 import { app } from "./app";
-import { Server } from "http";
+import { createServer } from "http";
 import { createSocket } from './sockets';
 
-const server = new Server(app);
+const server = createServer(app);
 
 createSocket(server);
 
