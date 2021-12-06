@@ -1,4 +1,5 @@
 import { Server, Socket } from "socket.io";
+import { space } from "./space";
 
 export const createSocket = (app: any) => {
 
@@ -13,5 +14,7 @@ export const createSocket = (app: any) => {
 
     io.on('connection', (socket:Socket) => {
         console.log("Some entry point was connected.");
+
+        space(socket);
     });
 }
